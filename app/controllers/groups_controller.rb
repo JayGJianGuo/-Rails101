@@ -29,6 +29,13 @@ class GroupsController < ApplicationController
     flash[:warning] = "Updated!"
   end
 
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    redirect_to groups_path
+    flash[:alert] = "Group [#{@group.title}] deleted!" 
+  end
+
   private
 
   def group_params

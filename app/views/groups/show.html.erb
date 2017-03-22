@@ -9,8 +9,10 @@
   <div class="row pull-right">
     <% if current_user && current_user.is_member_of?(@group) %>
       <label class="label label-success label-lg">Group Member</label>
+      <%= link_to("Quit Group", quit_group_path(@group), method: :post, class: "btn btn-warning") %>
     <% else %>
       <label class="label label-warning label-lg">People</label>
+      <%= link_to("Join Group", join_group_path(@group), method: :post, class: "btn btn-success") %>
     <% end %>
   </div>
   <h2><%= @group.title %></h2>

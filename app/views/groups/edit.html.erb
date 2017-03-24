@@ -1,0 +1,11 @@
+<div class="col-md-8 col-md-offset-2">
+  <h2>Edit Group</h2>
+  <hr>
+  <%= simple_form_for @group do |f| %>
+    <div class="group">
+      <%= f.input :title, label: "TITLE" %> 
+      <%= f.input :description, label: "DESCRIPTION" %>
+    </div>
+    <%= f.submit "Submit" , disable_with: "Submiting...", class: "btn btn-warning" %>
+  <% end %>
+</div>

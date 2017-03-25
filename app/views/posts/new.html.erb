@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="col-md-12">
+    <h2 class="text-center">New Post</h2>
+
+    <div class="col-md-8 col-md-offset-2">
+      <%= simple_form_for [@group, @post] do |f| %>
+        <div class="form-group">
+          <%= f.input :title, label: "标题" %>
+          <%= f.input :content, label: "内容" %>
+        </div>
+        <%= f.submit "提交", disable_with: "Submiting...", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

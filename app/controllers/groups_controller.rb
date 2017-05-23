@@ -15,16 +15,16 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.save
 
-    redirect_to @groups
+    redirect_to @group
   end
 
   def edit
     @group = Group.find(params[:id])
   end
 
-  def updata
+  def update
     @group = Group.find(params[:id])
-    @group.updata(group_params)
+    @group.update(group_params)
 
     redirect_to @group, notice: "Update Success"
   end
@@ -33,7 +33,7 @@ class GroupsController < ApplicationController
     @group= Group.find(params[:id])
     @group.destroy
     flash[:alert] = "Group deleted"
-    redirect_to @groups
+    redirect_to groups_path
   end
 
   private

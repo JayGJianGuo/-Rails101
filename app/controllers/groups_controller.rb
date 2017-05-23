@@ -18,6 +18,17 @@ class GroupsController < ApplicationController
     redirect_to @groups
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
+
+  def updata
+    @group = Group.find(params[:id])
+    @group.updata(group_params)
+
+    redirect_to @group
+  end
+
   private
 
   def group_params

@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.updata(group_params)
 
-    redirect_to @group
+    redirect_to @group, notice: "Update Success"
   end
 
   private

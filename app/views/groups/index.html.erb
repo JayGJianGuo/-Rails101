@@ -10,8 +10,10 @@
         <th>Title</th>
         <th>Description</th>
         <th>Creator</th>
-        <% if current_user && current_user == group.user %>
-        <th>Options</th>
+        <% @groups.each do |group| %>
+          <% if current_user && current_user == group.user %>
+          <th>Options</th>
+          <% end %>
         <% end %>
       </tr>
     </thead>

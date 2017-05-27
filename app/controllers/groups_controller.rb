@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_and_check_permission, only: [:edit, :update, :destroy]
   def index
     @groups = Group.all
@@ -8,6 +8,28 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @posts = @group.posts.recent.paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def join
+    @group = Group.find(params[:id])
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+      flash[:notice] = "Join succeed!"
+    else
+      flash[:warning] = "You are the member of the group."
+    end
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+      flash[:notice] = "Quit complete."
+    else
+      flash[:warning] = "You are not the member of this group."
+    end
+    redirect_to group_path(@group)
   end
 
   def new

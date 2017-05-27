@@ -1,20 +1,21 @@
 <div class="col-md-12">
   <div class="group">
-    <div class="row">
-      <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-success pull-right") %>
-
+    <div class="row pull-right">
+      <%= link_to("Write a Post", new_group_post_path(@group), class: "btn btn-info ") %>
+      <span> </span>
       <% if current_user && current_user == @group.user %>
-        <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right") %>
+        <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary") %>
       <% end %>
     </div>
-    <div class="row">
-      <span class="pull-right">
+    <br><br>
+    <div class="row pull-right">
         <% if current_user && current_user.is_member_of?(@group) %>
           <label for="group" class="label label-success">Group Member</label>
+          <%= link_to "Quit Group", quit_group_path(@group), method: :post , class: "btn btn-warning" %>
         <% else %>
           <label for="group" class="label label-warning">People</label>
+          <%= link_to "Join Group", join_group_path(@group), method: :post, class: "btn btn-success" %>
         <% end %>
-      </span>
     </div>
   </div>
 

@@ -34,4 +34,10 @@ class GroupsController < ApplicationController
     @group.destroy
     flash[:alert] = "Group deleted"
   end
+
+  private
+
+  def group_params
+    params.require(:group).permit(:title, :description)
+  end
 end

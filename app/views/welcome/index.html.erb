@@ -1,3 +1,26 @@
 <h1 class="text-center">
   Hello July!!!
 </h1>
+
+<hr>
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
+
+<hr>
+
+<%= week_calendar number_of_weeks: 2 do |date| %>
+  <%= date %>
+<% end %>
+
+<hr>
+
+<%= calendar number_of_days: 4 do |date| %>
+  <%= date %>
+<% end %>
+
+<hr>
+
+<%= calendar start_date_param: :my_date do |date| %>
+  <%= date %>
+<% end %>

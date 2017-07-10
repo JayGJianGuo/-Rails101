@@ -7,7 +7,7 @@
     <%= @group.title %>
   </h2>
   <p>
-    <%= @group.description %>
+    <%= to_markdown(@group.description) %>
   </p>
 
   <table class="table">
@@ -21,7 +21,7 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= post.content %></td>
+          <td><%= to_markdown(post.content) %></td>
           <td><%= post.user.email %></td>
           <td><%= post.created_at.to_s(:long) %></td>
         </tr>

@@ -65,6 +65,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.1)
@@ -93,6 +95,8 @@ GEM
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    pagedown-bootstrap-rails (2.1.4)
+      railties (> 3.1)
     puma (3.8.1)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -174,9 +178,11 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  pagedown-bootstrap-rails
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)

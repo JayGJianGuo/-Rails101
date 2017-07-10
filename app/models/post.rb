@@ -5,4 +5,8 @@ class Post < ApplicationRecord
 
   scope :recent, -> { order("created_at DESC")}
   scope :back_recent, -> { order("created_at DESC").reverse}
+
+  def page_in_use
+    paginate(:page => params[:pages], :per_page => 5)
+  end
 end
